@@ -1,0 +1,79 @@
+# Sonic Visualizer Knowledge Base for Dance Hit Audio Signature System
+# This file maps Sonic Visualizer concepts to our 8-dimension analysis framework.
+
+## Sonic Visualizer Overview
+Sonic Visualizer is an open-source application for viewing and analyzing audio files.
+It supports VAMP audio analysis plugins for feature extraction.
+Website: https://www.sonicvisualiser.org/
+
+## VAMP Plugin Equivalences to Our 8 Dimensions
+
+### Dimension 1: BPM Stability
+- VAMP Plugin: vamp-example-plugins:fixedtempo
+- SV Layer: Time Instants (beat positions)
+- Our Method: Autocorrelation-based tempo tracking, stability = 1/variance
+- SV Equivalent: Queen Mary Tempo Tracker (qm-vamp-plugins:qm-tempotracker)
+
+### Dimension 2: Bass Energy
+- VAMP Plugin: Not directly available as single plugin
+- SV Layer: Spectrogram (narrow band, 20-250 Hz)
+- Our Method: FFT-based bandpass + RMS energy in 20-250 Hz band
+- SV Workflow: Use spectrogram with frequency range locked to bass band
+
+### Dimension 3: Vocal Presence
+- VAMP Plugin: Melodia (melody extraction in vocal range)
+- SV Layer: Time-Value (spectral centroid)
+- Our Method: Spectral centroid + HNR in 300-3400 Hz
+- SV Equivalent: vamp-libxtract:spectral_centroid + manual band filtering
+
+### Dimension 4: Beat Strength
+- VAMP Plugin: qm-vamp-plugins:qm-onsetdetector
+- SV Layer: Time Instants (onset positions) + Note (onset strength)
+- Our Method: Onset detection via spectral flux, envelope peak amplitude
+- SV Equivalent: Queen Mary Onset Detector strength output
+
+### Dimension 5: Spectral Flux
+- VAMP Plugin: vamp-libxtract:spectral_flux (if available)
+- SV Layer: Time-Value (spectral flux curve)
+- Our Method: Frame-to-frame spectral magnitude difference (Euclidean)
+- SV Equivalent: Can be visualized as time-value layer from onset detection
+
+### Dimension 6: Rhythm Complexity
+- VAMP Plugin: qm-vamp-plugins:qm-barbeattracker (beat grid)
+- SV Layer: Time Instants (beat + sub-beat positions)
+- Our Method: Onset density + syncopation index (IOI coefficient of variation)
+- SV Workflow: Compare onset times against quantized beat grid to measure syncopation
+
+### Dimension 7: Harmonic Richness
+- VAMP Plugin: nnls-chroma:chordino (chord detection)
+- SV Layer: Region (chord regions) + Spectrogram
+- Our Method: Harmonic peak count + spectral flatness
+- SV Equivalent: NNLS Chroma + spectral_flatness from libxtract
+
+### Dimension 8: Dynamic Range
+- VAMP Plugin: vamp-libxtract:rms_amplitude
+- SV Layer: Time-Value (amplitude envelope)
+- Our Method: Crest factor (peak/RMS) per segment
+- SV Workflow: Compare peak waveform against RMS envelope
+
+## Sonic Visualizer Workflow for Validation
+1. Open audio file in Sonic Visualizer
+2. Add spectrogram pane (Pane > Add Spectrogram)
+3. For each dimension, add the corresponding VAMP plugin:
+   - Layer > Add Analysis Layer > select plugin
+4. Compare visual output with our MATLAB heatmap
+5. Use SV's measurement tool to verify specific time segments
+
+## Key SV Settings for Dance Music Analysis
+- FFT Size: 2048 (matches our config.fftSize)
+- Window: Hann (matches our windowing)
+- Hop Size: 512 (our hop is windowSamples * 0.5)
+- Frequency Scale: Log (for visualizing bass vs vocal ranges)
+- Color Scale: dB (for energy visualization)
+
+## Useful VAMP Plugins for Dance Music
+- qm-vamp-plugins: Queen Mary plugins (tempo, onset, beat tracking)
+- nnls-chroma: Harmonic analysis (chroma, chord detection)
+- vamp-libxtract: Low-level feature extraction
+- bbc-vamp-plugins: Rhythm and spectral features
+- Melodia: Vocal melody extraction
