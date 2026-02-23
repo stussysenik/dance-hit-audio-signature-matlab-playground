@@ -1,0 +1,169 @@
+{
+  "tracks": [
+    {
+      "title": "demo track 01 deep house",
+      "artist": "Synth Collective",
+      "bpm": 122,
+      "genre": "Deep House",
+      "origin": "Berlin",
+      "songwriters": [
+        "A. Synth",
+        "B. Bass"
+      ],
+      "dominant_features": "Bass Energy",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "1A",
+      "subgenre": "Deep House",
+      "filename": "demo_track_01_deep_house.wav"
+    },
+    {
+      "title": "demo track 02 vocal house",
+      "artist": "Aria Vox",
+      "bpm": 126,
+      "genre": "Vocal House",
+      "origin": "Chicago",
+      "songwriters": [
+        "C. Voice"
+      ],
+      "dominant_features": "Vocal Presence",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "2B",
+      "subgenre": "Vocal House",
+      "filename": "demo_track_02_vocal_house.wav"
+    },
+    {
+      "title": "demo track 03 techno",
+      "artist": "Pulse Machine",
+      "bpm": 138,
+      "genre": "Techno",
+      "origin": "Detroit",
+      "songwriters": [
+        "D. Kick"
+      ],
+      "dominant_features": "Beat Strength",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "3A",
+      "subgenre": "Techno",
+      "filename": "demo_track_03_techno.wav"
+    },
+    {
+      "title": "demo track 04 progressive",
+      "artist": "Slow Build",
+      "bpm": 128,
+      "genre": "Progressive House",
+      "origin": "Amsterdam",
+      "songwriters": [
+        "E. Rise",
+        "F. Drop"
+      ],
+      "dominant_features": "Dynamic Range",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "4B",
+      "subgenre": "Progressive House",
+      "filename": "demo_track_04_progressive.wav"
+    },
+    {
+      "title": "demo track 05 drum n bass",
+      "artist": "Break Freq",
+      "bpm": 174,
+      "genre": "Drum and Bass",
+      "origin": "London",
+      "songwriters": [
+        "G. Break"
+      ],
+      "dominant_features": "Rhythm Complexity",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "5A",
+      "subgenre": "Drum and Bass",
+      "filename": "demo_track_05_drum_n_bass.wav"
+    },
+    {
+      "title": "demo track 06 trance",
+      "artist": "Harmonia",
+      "bpm": 140,
+      "genre": "Trance",
+      "origin": "Goa",
+      "songwriters": [
+        "H. Chord",
+        "I. Pad"
+      ],
+      "dominant_features": "Harmonic Richness",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "6B",
+      "subgenre": "Trance",
+      "filename": "demo_track_06_trance.wav"
+    },
+    {
+      "title": "demo track 07 electro",
+      "artist": "Flux State",
+      "bpm": 130,
+      "genre": "Electro",
+      "origin": "Paris",
+      "songwriters": [
+        "J. Warp"
+      ],
+      "dominant_features": "Spectral Flux",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "7A",
+      "subgenre": "Electro",
+      "filename": "demo_track_07_electro.wav"
+    },
+    {
+      "title": "demo track 08 minimal",
+      "artist": "Sparse Signal",
+      "bpm": 124,
+      "genre": "Minimal Techno",
+      "origin": "Bucharest",
+      "songwriters": [
+        "K. Click"
+      ],
+      "dominant_features": "BPM Stability",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "8B",
+      "subgenre": "Minimal Techno",
+      "filename": "demo_track_08_minimal.wav"
+    },
+    {
+      "title": "demo track 09 afro house",
+      "artist": "Ubuntu Beat",
+      "bpm": 118,
+      "genre": "Afro House",
+      "origin": "Johannesburg",
+      "songwriters": [
+        "L. Drum",
+        "M. Shaker"
+      ],
+      "dominant_features": "Rhythm Complexity",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "9A",
+      "subgenre": "Afro House",
+      "filename": "demo_track_09_afro_house.wav"
+    },
+    {
+      "title": "demo track 10 EDM festival",
+      "artist": "Drop Factory",
+      "bpm": 150,
+      "genre": "EDM",
+      "origin": "Las Vegas",
+      "songwriters": [
+        "N. Build",
+        "O. Drop"
+      ],
+      "dominant_features": "Dynamic Range",
+      "year": 2024,
+      "label": "Demo Records",
+      "key": "10B",
+      "subgenre": "EDM",
+      "filename": "demo_track_10_EDM_festival.wav"
+    }
+  ]
+}
