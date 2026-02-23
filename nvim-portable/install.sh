@@ -1,0 +1,35 @@
+#!/bin/bash
+# Portable LazyVim setup — run this on any new machine
+# Usage: bash install.sh
+
+set -e
+
+echo "=== Portable LazyVim Setup ==="
+
+# Backup existing config
+if [ -d "$HOME/.config/nvim" ]; then
+  echo "Backing up existing nvim config to ~/.config/nvim.bak"
+  mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
+fi
+
+# Copy this config
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+mkdir -p "$HOME/.config"
+cp -r "$SCRIPT_DIR" "$HOME/.config/nvim"
+rm -f "$HOME/.config/nvim/install.sh"  # don't need installer inside config
+rm -f "$HOME/.config/nvim/.tmux.conf"  # tmux goes to home dir
+
+# Install tmux config
+if [ -f "$SCRIPT_DIR/.tmux.conf" ]; then
+  cp "$SCRIPT_DIR/.tmux.conf" "$HOME/.tmux.conf"
+  echo "Installed tmux config to ~/.tmux.conf"
+fi
+
+echo ""
+echo "Done! Open nvim and plugins will auto-install on first launch."
+echo "Run :Mason inside nvim to verify LSP/formatter installations."
+echo ""
+echo "For OCaml support, also run:"
+echo "  brew install opam && opam init && opam install ocaml-lsp-server ocamlformat"
+echo ""
+echo "For tmux, reload with: tmux source-file ~/.tmux.conf"

@@ -1,0 +1,11 @@
+*.m~
+*.asv
+slprj/
+*.slxc
+.DS_Store
+
+# Generated demo audio (regenerated on first run)
+data/demo/*.wav
+
+# Cache
+data/cache/
