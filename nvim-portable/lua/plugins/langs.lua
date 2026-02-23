@@ -48,6 +48,14 @@ return {
         sh = { "shfmt" },
         bash = { "shfmt" },
         ocaml = { "ocamlformat" },
+        matlab = { "mh_style" },
+      },
+      formatters = {
+        mh_style = {
+          command = "mh_style",
+          args = { "--fix", "$FILENAME" },
+          stdin = false,
+        },
       },
       format_on_save = {
         timeout_ms = 3000,
@@ -69,8 +77,37 @@ return {
         ruby = { "rubocop" },
         sh = { "shellcheck" },
         bash = { "shellcheck" },
+        matlab = { "mh_lint" },
       },
     },
+    config = function(_, opts)
+      local lint = require("lint")
+      -- Register custom MATLAB linter (MISS_HIT mh_lint, installed via pip)
+      lint.linters.mh_lint = {
+        cmd = "mh_lint",
+        args = {},
+        stdin = false,
+        stream = "stdout",
+        ignore_exitcode = true,
+        parser = function(output)
+          local diagnostics = {}
+          for line in output:gmatch("[^\n]+") do
+            local lnum, col, msg = line:match(":(%d+):(%d+): %w+: (.+)")
+            if lnum then
+              table.insert(diagnostics, {
+                lnum = tonumber(lnum) - 1,
+                col = tonumber(col) - 1,
+                severity = line:match(": error:") and vim.diagnostic.severity.ERROR or vim.diagnostic.severity.WARN,
+                message = msg,
+                source = "mh_lint",
+              })
+            end
+          end
+          return diagnostics
+        end,
+      }
+      lint.linters_by_ft = opts.linters_by_ft
+    end,
   },
 
   -- ── Extra LSP servers (for languages without LazyVim extras) ──
